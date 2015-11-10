@@ -15,11 +15,7 @@
     },
     {
       "type": "ansible-local",
-      "playbook_file": "ansible/main.yml",
-      "role_paths": [
-        "/etc/ansible/roles/geerlingguy.packer-debian",
-        "/etc/ansible/roles/geerlingguy.nfs"
-      ]
+      "playbook_file": "ansible/main.yml"
     },
     {
       "type": "shell",
@@ -31,9 +27,7 @@
     {
       "type": "virtualbox-iso",
       "boot_command": [
-        "<esc><wait>",
-        "<esc><wait>",
-        "<enter><wait>",
+        "<esc><esc><enter><wait>",
         "/install/vmlinuz noapic preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
         "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
         "hostname={{ .Name }} ",

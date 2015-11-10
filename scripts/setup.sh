@@ -24,5 +24,7 @@ apt-get -y autoremove &> /dev/null || exit 1
 echo "  7/8. Upgrading all packages"
 apt-get -y dist-upgrade &> /dev/null || exit 1
 
+pwd
+
 echo "  8/8. Running Ansible Galaxy"
-cd /vagrant; ansible-galaxy install -r ansible/requirements.txt
+ansible-galaxy install -r ../ansible/requirements.txt
