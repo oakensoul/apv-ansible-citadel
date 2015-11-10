@@ -3,23 +3,26 @@
 echo "Configuring the Server:"
 export DEBIAN_FRONTEND=noninteractive
 
-echo "  1/7. Update apt"
+echo "  1/8. Update apt"
 apt-get update -qq &> /dev/null || exit 1
 
-echo "  2/7. Install python-software-properties python-apt python-pycurl"
+echo "  2/8. Install python-software-properties python-apt python-pycurl"
 apt-get install -qq software-properties-common python-apt python-pycurl &> /dev/null || exit 1
 
-echo "  3/7. Add Ansible PPA"
+echo "  3/8. Add Ansible PPA"
 apt-add-repository ppa:ansible/ansible &> /dev/null || exit 1
 
-echo "  4/7. Update apt to grab new PPA info for Ansible"
+echo "  4/8. Update apt to grab new PPA info for Ansible"
 apt-get update -qq &> /dev/null || exit 1
 
-echo "  5/7. Install Ansible"
+echo "  5/8. Install Ansible"
 apt-get install -qq ansible &> /dev/null || exit 1
 
-echo "  6/7. Remove auto-installed packages that are no longer required"
+echo "  6/8. Remove auto-installed packages that are no longer required"
 apt-get -y autoremove &> /dev/null || exit 1
 
-echo "  7/7. Upgrading all packages"
+echo "  7/8. Upgrading all packages"
 apt-get -y dist-upgrade &> /dev/null || exit 1
+
+echo "  8/8. Running Ansible Galaxy"
+cd /vagrant; ansible-galaxy install -r ansible/requirements.txt

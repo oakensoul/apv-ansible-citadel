@@ -10,14 +10,8 @@
   "provisioners": [
     {
       "type": "shell",
-      "scripts": [
-        "scripts/setup.sh"
-      ],
-      "override": {
-        "virtualbox-iso": {
-          "execute_command": "echo 'vagrant'|sudo -S bash '{{.Path}}'"
-        }
-      }
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+      "script": "scripts/setup.sh"
     },
     {
       "type": "ansible-local",
@@ -26,6 +20,11 @@
         "/etc/ansible/roles/geerlingguy.packer-debian",
         "/etc/ansible/roles/geerlingguy.nfs"
       ]
+    },
+    {
+      "type": "shell",
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+      "script": "scripts/cleanup.sh"
     }
   ],
   "builders": [
