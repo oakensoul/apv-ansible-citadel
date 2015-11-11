@@ -1,6 +1,6 @@
 {
   "push": {
-    "name": "",
+    "name": "oakensoul/apv-ansible-citadel",
     "vcs": true
   },
   "variables": {
@@ -14,8 +14,16 @@
       "script": "scripts/setup.sh"
     },
     {
+      "type": "shell",
+      "execute_command": "echo '{{user `ssh_pass`}}' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+      "inline": [
+        "echo '%sudo    ALL=(ALL)  NOPASSWD:ALL' >> /etc/sudoers"
+      ]
+    },
+    {
       "type": "ansible-local",
-      "playbook_file": "ansible/main.yml"
+      "playbook_file": "ansible/main.yml",
+      "inventory_groups": "local_inventory"
     },
     {
       "type": "shell",
@@ -67,7 +75,7 @@
         "artifact_type": "vagrant.box",
         "metadata": {
           "provider": "virtualbox",
-          "version": "0.0.1"
+          "created_at": "{{timestamp}}"
         }
       }
     ]

@@ -3,28 +3,30 @@
 echo "Configuring the Server:"
 export DEBIAN_FRONTEND=noninteractive
 
-echo "  1/8. Update apt"
+echo "  Setup 1/9. Update apt"
 apt-get update -qq &> /dev/null || exit 1
 
-echo "  2/8. Install python-software-properties python-apt python-pycurl"
+echo "  Setup 2/9. Install python-software-properties python-apt python-pycurl"
 apt-get install -qq software-properties-common python-apt python-pycurl &> /dev/null || exit 1
 
-echo "  3/8. Add Ansible PPA"
+echo "  Setup 3/9. Add Ansible PPA"
 apt-add-repository ppa:ansible/ansible &> /dev/null || exit 1
 
-echo "  4/8. Update apt to grab new PPA info for Ansible"
+echo "  Setup 4/9. Update apt to grab new PPA info for Ansible"
 apt-get update -qq &> /dev/null || exit 1
 
-echo "  5/8. Install Ansible"
+echo "  Setup 5/9. Install Ansible"
 apt-get install -qq ansible &> /dev/null || exit 1
 
-echo "  6/8. Remove auto-installed packages that are no longer required"
+echo "  Setup 6/9. Remove auto-installed packages that are no longer required"
 apt-get -y autoremove &> /dev/null || exit 1
 
-echo "  7/8. Upgrading all packages"
+echo "  Setup 7/9. Upgrading all packages"
 apt-get -y dist-upgrade &> /dev/null || exit 1
 
-pwd
+echo "  Setup 8/9. Updating sudoers"
+echo '%sudo    ALL=(ALL)  NOPASSWD:ALL' >> /etc/sudoers
 
-echo "  8/8. Running Ansible Galaxy"
-ansible-galaxy install -r ../ansible/requirements.txt
+echo "  Setup 9/9. Running Ansible Galaxy"
+ansible-galaxy install geerlingguy.packer-debian
+ansible-galaxy install geerlingguy.nfs
