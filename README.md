@@ -21,7 +21,12 @@ Boxes for one of your projects, simply add the following to your Vagrantfile.
 
 
 
-
+## Manual Packer Push
+The box is set to automatically update whenever an update to the master branch occurs. However, for testing, or if
+you would like to push a build manually, execute the following command:
+````
+$ packer push ubuntu-trusty64.json
+````
 
 ## Contributing
 * [Getting Started](https://github.com/oakensoul/trunk/blob/master/CONTRIBUTING.md)
