@@ -1,6 +1,6 @@
 {
   "push": {
-    "name": "oakensoul/apv-ansible-citadel",
+    "name": "oakensoul/ansible-citadel-trusty64",
     "vcs": true
   },
   "variables": {
