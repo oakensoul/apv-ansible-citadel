@@ -15,7 +15,7 @@
     },
     {
       "type": "shell",
-      "execute_command": "echo '{{user `ssh_pass`}}' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+      "execute_command": "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
       "inline": [
         "echo '%sudo    ALL=(ALL)  NOPASSWD:ALL' >> /etc/sudoers"
       ]
@@ -75,8 +75,7 @@
         "artifact_type": "vagrant.box",
         "metadata": {
           "provider": "virtualbox",
-          "created_at": "{{timestamp}}",
-          "version": "1.0.2"
+          "created_at": "{{timestamp}}"
         }
       }
     ]
