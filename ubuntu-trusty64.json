@@ -15,6 +15,7 @@
     },
     {
       "type": "ansible-local",
+      "command": "echo 'vagrant' | ansible-playbook",
       "playbook_file": "ansible/main.yml",
       "inventory_groups": "local_inventory"
     },
