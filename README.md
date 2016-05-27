@@ -10,11 +10,8 @@ The output of this project is a collection of Vagrant Boxes. To use one of the
 Boxes for one of your projects, simply add the following to your Vagrantfile.
 
 ```bash
-  # Use Ansible Citadel based on ubuntu/trusty64
+  # Use Ansible Citadel based on ubuntu/trusty64 - 14.04
   config.vm.box = "oakensoul/ansible-citadel-trusty64"
-
-  # Use Ansible Citadel based on hashicorp/precise64
-  config.vm.box = "oakensoul/ansible-citadel-precise64"
 ```
 
 ## Specific Contents of this Box
