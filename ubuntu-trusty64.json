@@ -15,10 +15,7 @@
     },
     {
       "type": "ansible-local",
-      "playbook_file": "../ansible/main.yml",
-      "role_paths": [
-        "../ansible/roles/*"
-      ],
+      "playbook_file": "ansible/main.yml",
       "inventory_groups": "local_inventory"
     },
     {
