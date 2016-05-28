@@ -15,8 +15,27 @@ Boxes for one of your projects, simply add the following to your Vagrantfile.
 ```
 
 ## Specific Contents of this Box
-
-
+  * Ansible
+  * curl
+  * vim
+  * libxslt1-dev
+  * libxml2-dev
+  * unzip
+  * zip
+  * python-pip
+  * python-psycopg2
+  * git
+  * ntp
+  * wget
+  * software-properties-common
+  * python-apt
+  * python-pycurl
+  * facter
+  * linux-headers-$(uname -r)
+  * build-essential
+  * zlib1g-dev
+  * libssl-dev
+  * libreadline-gplv2-dev
 
 ## Manual Packer Push
 The box is set to automatically update whenever an update to the master branch occurs. However, for testing, or if
