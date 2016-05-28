@@ -10,15 +10,18 @@
   "provisioners": [
     {
       "type": "shell",
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
       "script": "scripts/setup.sh"
     },
     {
       "type": "ansible-local",
+      "command": "echo 'vagrant' | {{.Vars}} sudo -S -E ansible-playbook",
       "playbook_file": "ansible/main.yml",
       "inventory_groups": "local_inventory"
     },
     {
       "type": "shell",
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
       "script": "scripts/cleanup.sh"
     }
   ],
