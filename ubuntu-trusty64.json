@@ -22,9 +22,8 @@
     },
     {
       "type": "ansible-local",
-      "command": "echo 'vagrant' | {{.Vars}} sudo -S -E ansible-playbook",
-      "playbook_file": "ansible/main.yml",
-      "inventory_groups": "local_inventory"
+      "command": "echo 'vagrant' | sudo -S -E ansible-playbook",
+      "playbook_file": "ansible/main.yml"
     },
     {
       "type": "shell",
