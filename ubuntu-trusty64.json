@@ -1,6 +1,6 @@
 {
   "push": {
-    "name": "oakensoul/ansible-citadel-trusty64",
+    "name": "oakensoul/apv-ansible-citadel",
     "vcs": true
   },
   "variables": {
@@ -71,7 +71,7 @@
         "only": [
           "virtualbox-iso"
         ],
-        "artifact": "{{user `atlas_username`}}/{{user `atlas_name`}}",
+        "artifact": "{{user `atlas_username`}}/{{user `atlas_trusty64_box`}}",
         "artifact_type": "vagrant.box",
         "metadata": {
           "provider": "virtualbox",
