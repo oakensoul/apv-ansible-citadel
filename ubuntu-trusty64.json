@@ -14,6 +14,13 @@
       "script": "scripts/setup.sh"
     },
     {
+      "type": "shell",
+      "execute_command": "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+      "inline": [
+        "echo '%sudo    ALL=(ALL)  NOPASSWD:ALL' >> /etc/sudoers"
+      ]
+    },
+    {
       "type": "ansible-local",
       "command": "echo 'vagrant' | {{.Vars}} sudo -S -E ansible-playbook",
       "playbook_file": "ansible/main.yml",
