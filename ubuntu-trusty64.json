@@ -6,7 +6,9 @@
   "variables": {
     "atlas_username": "{{env `ATLAS_USERNAME`}}",
     "atlas_name": "{{env `ATLAS_NAME`}}",
-    "atlas_trusty64_box": "{{env `ATLAS_TRUSTY64_BOX`}}"
+    "atlas_trusty64_box": "{{env `ATLAS_TRUSTY64_BOX`}}",
+    "cloud_token": "{{env `ATLAS_TOKEN`}}",
+    "version": "2.0.0"
   },
   "provisioners": [
     {
@@ -68,17 +70,10 @@
         "keep_input_artifact": false
       },
       {
-        "type": "atlas",
-        "only": [
-          "virtualbox-iso"
-        ],
-        "artifact": "{{user `atlas_username`}}/{{user `atlas_trusty64_box`}}",
-        "artifact_type": "vagrant.box",
-        "version": "2.0.0",
-        "metadata": {
-          "provider": "virtualbox",
-          "created_at": "{{timestamp}}"
-        }
+        "type": "vagrant-cloud",
+        "box_tag": "{{user `atlas_username`}}/{{user `atlas_trusty64_box`}}",
+        "version": "{{user `version`}}",
+        "access_token": "{{user `cloud_token`}}"
       }
     ]
   ]
