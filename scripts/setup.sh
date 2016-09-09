@@ -30,7 +30,7 @@ echo "  Setup 1/9. Update apt"
 apt-get update -qq &> /dev/null || exit 1
 
 echo "  Setup 2/9. Install python-software-properties python-apt python-pycurl"
-apt-get install -qq software-properties-common python-apt python-pycurl &> /dev/null || exit 1
+apt-get install -qq software-properties-common python-apt python-pycurl urllib3 pyopenssl ndg-httpsclient pyasn1 &> /dev/null || exit 1
 
 echo "  Setup 3/9. Add Ansible PPA"
 apt-add-repository ppa:ansible/ansible &> /dev/null || exit 1
