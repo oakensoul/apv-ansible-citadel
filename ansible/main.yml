@@ -11,10 +11,10 @@
   tasks:
     - name: Update apt cache
       apt: update-cache=yes cache_valid_time=86400
-      sudo: yes
+      become: true
 
     - name: install basic packages
-      sudo: yes
+      become: true
       apt: pkg={{ item }} state=latest
       tags: [packages]
       with_items:
@@ -31,7 +31,8 @@
         - wget
 
     - name: install python packages
-      sudo: yes
+      become: true
+      pip: name={{ item }}
       with_items:
         - urllib3
         - pyopenssl
@@ -41,4 +42,3 @@
     - name: Check NTP service to make sure its running
       service: name=ntp state=started enabled=yes
       sudo: yes
-
