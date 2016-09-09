@@ -30,15 +30,6 @@
         - ntp
         - wget
 
-    - name: install python packages
-      become: true
-      pip: name={{ item }}
-      with_items:
-        - urllib3
-        - pyopenssl
-        - ndg-httpsclient
-        - pyasn1
-
     - name: Check NTP service to make sure its running
       service: name=ntp state=started enabled=yes
       sudo: yes
