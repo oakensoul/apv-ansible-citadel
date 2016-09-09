@@ -44,6 +44,9 @@ you would like to push a build manually, execute the following command:
 $ packer push ubuntu-trusty64.json
 ````
 
+## Updates
+  * 2016-09-09
+
 ## Contributing
 * [Getting Started](https://github.com/oakensoul/trunk/blob/master/CONTRIBUTING.md)
 * [Bug Reports](https://github.com/oakensoul/trunk/blob/master/CONTRIBUTING.md#bug-reports)
